@@ -59,6 +59,7 @@ ELSE
   ECHO("X is 5 or less")
 END
 ```
+
 ### Comment Example
 
 ```nexscript
@@ -69,40 +70,43 @@ $ This is a comment
 
 Ensure that you have `Python` and `Git`.
 
-1. **Clone the repository**:
-    - Open command prompt.
-    - Use the `git clone` command followed by the repository URL:
-    ```sh
-    git clone https://github.com/memecoder12345678/NexScript.git
-    ```
+**Clone the repository**:
+- Open command prompt.
+**NOTE**: Recommended Directory: It is advisable to clone the repository into a default or standard directory to avoid potential issues. For example, you might choose `Documents` or a similar directory.
+- Navigate to the directory where you want to clone the repository. For example:
+  ```sh
+  cd ~\Documents
+  ```
+- Use the `git clone` command followed by the repository URL:
+  ```sh
+  git clone https://github.com/memecoder12345678/NexScript.git
+  ```
 
-3. **Navigate to the project directory**:
-    ```sh
-    cd NexScript\NexScript
-    ```
 ## Running a NexScript File
 
-To run a `.nex` file, follow these steps:
+To run a `.nex` file, you can use the `NexRun` script. Follow these steps:
 
-1. **Open `shell.py` in the `NexScript\NexScript` directory**:
-    ```sh
-    python shell.py
-    ```
+**Using NexRun to execute a `.nex` file**:
+- Open command prompt.
+1. Navigate to the project directory.
+  ```sh
+  cd ~\Documents\NexScript\NexScript
+  ```
+2. Enter the path to your `.nex` file:
+  ```sh
+  python NexRun.py path\to\your\file.nex
+  ```
 
-2. **Enter the path to your `.nex` file**:
-    After running `shell.py`, you can execute your NexScript file by simply typing the path to the file with the `.nex` extension in the NexShell.
+  Where:
+  - `NexRun.py` is the script that interprets and runs your NexScript programs.
+  - `path\to\your\file.nex` is the path to the NexScript file you want to execute.
 
-    Example:
-    ```sh
-    path\to\your\file.nex
-    ```
+By following these steps, your `.nex` script will be processed and executed by the NexScript interpreter.
 
-    Where:
-    - `shell.py` is the script that interprets and runs your NexScript programs.
-    - `path\to\your\file.nex` is the path to the NexScript file you want to execute.
+## Grammar Reference
 
-  By following these steps, your `.nex` script will be processed and executed by the NexScript interpreter.
+You can find detailed information about the syntax and grammar of NexScript in the `grammar.txt` file. This file includes the full grammar specification used by the interpreter, which can be helpful for understanding the language's syntax and writing correct programs.
 
 ---
 
-NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution.
+NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. 📝🚀
