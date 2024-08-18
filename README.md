@@ -80,14 +80,26 @@ Ensure that you have Python 3.12 or newer installed.
     ```
 ## Running a NexScript File
 
-To run a `.nex` file, use the accompanying Python script:
+To run a `.nex` file, follow these steps:
 
-1. **Run the script with the path to the `.nex` file**:
+1. **Open `shell.py` in the `NexScript\NexScript` directory**:
     ```sh
-    python shell.py path/to/your/file.nex
+    python shell.py
+    ```
+
+2. **Enter the path to your `.nex` file**:
+    After running `shell.py`, you can execute your NexScript file by simply typing the path to the file with the `.nex` extension in the shell.
+
+    Example:
+    ```sh
+    path\to\your\file.nex
     ```
 
     Where:
-    - `shell.py` is the name of the Python script that executes the NexScript program.
-    - `path/to/your/file.nex` is the path to the NexScript file you want to run.
+    - `shell.py` is the script that interprets and runs your NexScript programs.
+    - `path\to\your\file.nex` is the path to the NexScript file you want to execute.
+
+By following these steps, your `.nex` script will be processed and executed by the NexScript interpreter.
+
+
 NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution.
