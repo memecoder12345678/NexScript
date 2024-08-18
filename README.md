@@ -1,4 +1,4 @@
-## NexScript Programming Language - Introduction
+## NexScript Programming Language - Introduction 🖥️
 
 **NexScript** is a custom programming language designed for ease of use and flexibility, focusing on straightforward syntax and powerful features. Below is an overview of the language's key elements and how they work.
 
@@ -67,14 +67,16 @@ $ This is a comment
 
 ## Installation
 
-Ensure that you have Python 3.12 or newer installed.
+Ensure that you have `Python` and `Git`.
 
 1. **Clone the repository**:
+    - Open command prompt.
+    - Use the `git clone` command followed by the repository URL:
     ```sh
     git clone https://github.com/memecoder12345678/NexScript.git
     ```
 
-2. **Navigate to the project directory**:
+3. **Navigate to the project directory**:
     ```sh
     cd NexScript\NexScript
     ```
@@ -88,7 +90,7 @@ To run a `.nex` file, follow these steps:
     ```
 
 2. **Enter the path to your `.nex` file**:
-    After running `shell.py`, you can execute your NexScript file by simply typing the path to the file with the `.nex` extension in the shell.
+    After running `shell.py`, you can execute your NexScript file by simply typing the path to the file with the `.nex` extension in the NexShell.
 
     Example:
     ```sh
@@ -99,7 +101,8 @@ To run a `.nex` file, follow these steps:
     - `shell.py` is the script that interprets and runs your NexScript programs.
     - `path\to\your\file.nex` is the path to the NexScript file you want to execute.
 
-By following these steps, your `.nex` script will be processed and executed by the NexScript interpreter.
+  By following these steps, your `.nex` script will be processed and executed by the NexScript interpreter.
 
+---
 
 NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution.
