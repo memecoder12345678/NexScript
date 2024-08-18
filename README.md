@@ -58,7 +58,36 @@ ELIF x > 5 THEN
 ELSE
   ECHO("X is 5 or less")
 END
+```
+### Comment Example
 
+```nexscript
+$ This is a comment
 ```
 
+## Installation
+
+Ensure that you have Python 3.12 or newer installed.
+
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/memecoder12345678/NexScript.git
+    ```
+
+2. **Navigate to the project directory**:
+    ```sh
+    cd NexScript\NexScript
+    ```
+## Running a NexScript File
+
+To run a `.nex` file, use the accompanying Python script:
+
+1. **Run the script with the path to the `.nex` file**:
+    ```sh
+    python shell.py path/to/your/file.nex
+    ```
+
+    Where:
+    - `shell.py` is the name of the Python script that executes the NexScript program.
+    - `path/to/your/file.nex` is the path to the NexScript file you want to run.
 NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution.
