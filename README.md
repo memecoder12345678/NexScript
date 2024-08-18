@@ -51,12 +51,12 @@ $ Define x with an initial value
 SET x = 15
 
 $ If-else condition
-IF x > 10 THEN
-  ECHO("X is greater than 10")
-ELIF x > 5 THEN
-  ECHO("X is greater than 5 but less than or equal to 10")
+IF x >= 10 THEN
+  ECHO("X is greater than 10 or equal to 10")
+ELIF x >= 5 THEN
+  ECHO("X is greater than 5 or equal to 5")
 ELSE
-  ECHO("X is 5 or less")
+  ECHO("X is less than 5")
 END
 ```
 
