@@ -48,8 +48,7 @@ NexScript supports various expressions and statements, including conditional log
 ### Example Code Snippets
 
 ```nexscript
-$ Define x with an initial value
-SET x = 15
+SET x = 15 $ Define x with an initial value
 
 $ If-else condition
 IF x >= 10 THEN
@@ -66,8 +65,6 @@ END
 ```nexscript
 $ This is a comment
 ```
-
-- **Comment Usage**: Comments in NexScript must be placed at the beginning of a line. Avoid using comments in the same line as code, especially when using newline characters `\n` or semicolons `;`.
 
 
 
