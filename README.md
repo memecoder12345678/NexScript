@@ -7,7 +7,8 @@
 NexScript supports various expressions and statements, including conditional logic, loops, function definitions, and more.
 
 #### Statements
-- **Newline Handling**: Statements can be separated by newlines. Multiple statements can be written with newlines in between.
+- **Newline Handling**: Statements can be separated by newlines. Multiple statements can be written with newlines code `;` or `\n` in between.
+
 - **Statement Types**: 
   - `RETURN expr` - Returns an expression if provided.
   - `CONTINUE` - Skips to the next iteration in a loop.
@@ -103,10 +104,16 @@ To run a `.nex` file, you can use the `NexRun` script. Follow these steps:
 
 By following these steps, your `.nex` script will be processed and executed by the NexScript interpreter.
 
-## Grammar Reference
+.
 
-You can find detailed information about the syntax and grammar of NexScript in the `grammar.txt` file. This file includes the full grammar specification used by the interpreter, which can be helpful for understanding the language's syntax and writing correct programs.
+### ⚠️ Platform Compatibility Warning
 
----
+- **Current Support**: NexScript is currently only available for Windows.
 
-NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. 📝🚀
+- **Upcoming Support**: A Linux version is planned for future release.
+
+- **No macOS Support**: There are no plans to support macOS at this time.
+
+--- 
+
+NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. You can also refer to the `grammar.txt` file for more details on the language's grammar and syntax 📝🚀
