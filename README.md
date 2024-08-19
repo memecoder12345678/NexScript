@@ -82,7 +82,7 @@ Ensure that you have `Python` and `Git`.
 
 **Clone the repository**:
 - Open command prompt.
-**NOTE**: It is advisable to clone the repository into a default or standard directory to avoid potential issues. For example, you might choose `Documents` or a similar directory.
+**NOTE**: It is advisable to clone the repository into a default or standard directory to avoid potential issues. For example, you might choose `C:\Users\<your username>` or a similar directory.
 - Navigate to the directory where you want to clone the repository. For example:
   ```cmd
   cd C:\Users\<your username>
