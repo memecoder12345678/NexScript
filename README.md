@@ -7,7 +7,7 @@
 NexScript supports various expressions and statements, including conditional logic, loops, function definitions, and more.
 
 #### Statements
-- **Newline Handling**: Statements can be separated by newlines. Multiple statements can be written with newlines code `;` or `\n` in between.
+- **Newline Handling**: Statements can be separated by newlines. Multiple statements can be written with newlines characters `;` or `\n` in between.
 
 - **Statement Types**: 
   - `RETURN expr` - Returns an expression if provided.
@@ -66,6 +66,13 @@ END
 ```nexscript
 $ This is a comment
 ```
+
+
+## Important Notes
+- **Platform Availability**: Currently, NexScript is only available for Windows. A Linux version is planned for release soon, but there will be no macOS version.
+- **Comment Usage**: Comments in NexScript must be placed at the beginning of a line. Avoid using comments in the same line as code, especially when using newline characters `\n` or semicolons `;`.
+
+
 
 ## Installation
 
