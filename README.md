@@ -77,10 +77,10 @@ Ensure that you have `Python` and `Git`.
 
 **Clone the repository**:
 - Open command prompt.
-**NOTE**: Recommended Directory: It is advisable to clone the repository into a default or standard directory to avoid potential issues. For example, you might choose `Documents` or a similar directory.
+**NOTE**: It is advisable to clone the repository into a default or standard directory to avoid potential issues. For example, you might choose `Documents` or a similar directory.
 - Navigate to the directory where you want to clone the repository. For example:
   ```sh
-  cd ~\Documents
+  cd C\User\<your username>
   ```
 - Use the `git clone` command followed by the repository URL:
   ```sh
@@ -95,7 +95,7 @@ To run a `.nex` file, you can use the `NexRun` script. Follow these steps:
 - Open command prompt.
 1. Navigate to the project directory.
   ```sh
-  cd ~\Documents\NexScript\NexScript
+  cd C\User\<your username>\NexScript\NexScript
   ```
 2. Enter the path to your `.nex` file:
   ```sh
