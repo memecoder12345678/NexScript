@@ -67,9 +67,6 @@ END
 $ This is a comment
 ```
 
-
-## Important Notes
-- **Platform Availability**: Currently, NexScript is only available for Windows. A Linux version is planned for release soon, but there will be no macOS version.
 - **Comment Usage**: Comments in NexScript must be placed at the beginning of a line. Avoid using comments in the same line as code, especially when using newline characters `\n` or semicolons `;`.
 
 
