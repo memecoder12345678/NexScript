@@ -1,5 +1,13 @@
 ## NexScript Programming Language - Introduction 🖥️
 
+**Author:** `memecoder`
+
+**Language:** `Python`
+
+**Platform:** `32-bit Windows`
+
+---
+
 **NexScript** is a custom programming language designed for ease of use and flexibility, focusing on straightforward syntax and powerful features. Below is an overview of the language's key elements and how they work.
 
 ### Basic Syntax
