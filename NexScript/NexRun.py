@@ -1,10 +1,22 @@
 import NexScript
 import sys
 import os
-def clear(text):
-    lines = text.splitlines()
-    filtered_lines = [line for line in lines if not line.strip().startswith('$')]
-    return '\n'.join(filtered_lines)
+def clear_code(code):
+    cleaned_lines = []
+    inside_string = False
+    for line in code.splitlines():
+        new_line = ""
+        for char in line:
+            if char == '"' and not inside_string:
+                inside_string = True
+            elif char == '"' and inside_string:
+                inside_string = False
+            if char == '$' and not inside_string:
+                break 
+            new_line += char
+        if new_line.strip():
+            cleaned_lines.append(new_line)
+    return "\n".join(cleaned_lines)
 def main():
     if len(sys.argv) != 2:
         print("Usage: python NexRun.py <file_name.nex>")
@@ -19,7 +31,7 @@ def main():
     try:
         with open(file_name, 'r') as file:
             code = file.read()
-        code_clean = clear(code)
+        code_clean = clear_code(code)
         result, error = NexScript.run(file_name, code_clean)
         if error:
             if hasattr(error, 'as_string'):
