@@ -13,8 +13,6 @@
 NexScript supports various expressions and statements, including conditional logic, loops, function definitions, and more.
 
 ### Statements
-- **Newline Handling**: Statements can be separated by newlines. Multiple statements can be written with newline characters `;` or `\n` in between.
-
 - **Statement Types**: 
   - `RETURN expr` - Returns an expression if provided.
   - `CONTINUE` - Skips to the next iteration in a loop.
