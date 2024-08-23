@@ -1,6 +1,6 @@
 statements  : NEWLINE* statement (NEWLINE+ statement)* NEWLINE*
 
-statement		: KEYWORD:RETURN expr?
+statement		: KEYWORD:RETURN expr
 						: KEYWORD:CONTINUE
 						: KEYWORD:BREAK
 						: expr
@@ -28,16 +28,16 @@ atom        : INT|FLOAT|STRING|IDENTIFIER
             : if-expr
             : for-expr
             : loop-expr
-            : funccc-def
+            : func-def
 
-list-expr   : LSQUARE (expr (COMMA expr)*)? RSQUARE
+list-expr   : LSQUARE (expr (COMMA expr)*) RSQUARE
 
 if-expr     : KEYWORD:IF expr KEYWORD:THEN
-              (statement if-expr-b|if-expr-c?)
+              (statement if-expr-b|if-expr-c)
             | (NEWLINE statements KEYWORD:END|if-expr-b|if-expr-c)
 
 if-expr-b   : KEYWORD:ELIF expr KEYWORD:THEN
-              (statement if-expr-b|if-expr-c?)
+              (statement if-expr-b|if-expr-c)
             | (NEWLINE statements KEYWORD:END|if-expr-b|if-expr-c)
 
 if-expr-c   : KEYWORD:ELSE
@@ -45,7 +45,7 @@ if-expr-c   : KEYWORD:ELSE
             | (NEWLINE statements KEYWORD:END)
 
 for-expr    : KEYWORD:FOR IDENTIFIER EQ expr KEYWORD:TO expr 
-              (KEYWORD:STEP expr)? KEYWORD:THEN
+              (KEYWORD:STEP expr) KEYWORD:THEN
               statement
             | (NEWLINE statements KEYWORD:END)
 
@@ -53,7 +53,7 @@ loop-expr  : KEYWORD:LOOP expr KEYWORD:THEN
               statement
             | (NEWLINE statements KEYWORD:END)
 
-func-def    : KEYWORD:FUNC IDENTIFIER?
-              LPAREN (IDENTIFIER (COMMA IDENTIFIER)*)? RPAREN
+func-def    : KEYWORD:FUNC IDENTIFIER
+              LPAREN (IDENTIFIER (COMMA IDENTIFIER)*) RPAREN
               (ARROW expr)
             | (NEWLINE statements KEYWORD:END)
