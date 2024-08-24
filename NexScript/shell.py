@@ -1,5 +1,5 @@
 import NexScript
-print('NexScript (v1.5.0, Aug 21 2024, 15:24:32)\nTIP: Use command "EXIT" to exit.')
+print('NexScript (v1.6.0, Aug 24 2024, 9:09:53)\nTIP: Use command "EXIT" to exit.')
 def clear_code(code):
     cleaned_lines = []
     inside_string = False

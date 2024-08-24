@@ -178,7 +178,7 @@ class Lexer:
     while self.current_char != None:
       if self.current_char in ' \t':
         self.advance()
-      elif self.current_char == '\n':
+      elif self.current_char in '\n':
         tokens.append(Token(TT_NEWLINE, pos_start=self.pos))
         self.advance()
       elif self.current_char in DIGITS:
@@ -1661,7 +1661,7 @@ class BuiltInFunction(BaseFunction):
   def __repr__(self):
     return f"<built-in function {self.name}>"
 
-  #####################################
+
 
   def execute_print(self, exec_ctx):
     print(str(exec_ctx.symbol_table.get('value')))
@@ -1681,15 +1681,19 @@ class BuiltInFunction(BaseFunction):
     while True:
       text = input()
       try:
-        number = int(text)
+        if '.' in text:
+          number = float(text)
+        else:
+          number = int(text)
         break
       except ValueError:
-        print(f"'{text}' must be an integer. Try again!")
+        print(f"'{text}' must be an integer or float. Try again!")
     return RTResult().success(Number(number))
   execute_input_int.arg_names = []
 
+
   def execute_clear(self, exec_ctx):
-    os.system('cls' if os.name == 'nt' else 'cls') 
+    os.system('cls' if os.name == 'nt' else 'clear') 
     return RTResult().success(Number.null)
   execute_clear.arg_names = []
 
@@ -2128,7 +2132,7 @@ global_symbol_table.set("MATH_PI", Number.math_PI)
 global_symbol_table.set("ECHO", BuiltInFunction.print)
 global_symbol_table.set("ECHO_RET", BuiltInFunction.print_ret)
 global_symbol_table.set("INPUT", BuiltInFunction.input)
-global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
+global_symbol_table.set("INPUT_NUMBER", BuiltInFunction.input_int)
 global_symbol_table.set("CLEAR", BuiltInFunction.clear)
 global_symbol_table.set("CLS", BuiltInFunction.clear)
 global_symbol_table.set("IS_NUM", BuiltInFunction.is_number)
