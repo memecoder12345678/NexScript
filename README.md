@@ -8,18 +8,6 @@
 
 **NexScript** is a custom programming language designed for ease of use and flexibility, focusing on straightforward syntax and powerful features. Below is an overview of the language's key elements and how they work.
 
----
-
-<p align="center">
-  <img src="https://github.com/memecoder12345678/test/blob/main/icon.ico" alt="NexScript_icon" />
-  <br>
-  <span>NexScript icon</span>
-</p>
-
----
-
-
-
 ## Basic Syntax
 
 NexScript supports various expressions and statements, including conditional logic, loops, function definitions, and more.
