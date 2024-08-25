@@ -34,7 +34,7 @@ Thank you for considering contributing to NexScript! Your contributions help mak
 7. **Create a pull request**: Go to the [Pull Requests](https://github.com/memecoder12345678/NexScript/pulls) section of the repository and click on "New Pull Request". Select your branch and submit the pull request with a description of your changes.
 
 ### Code of Conduct
-Please follow the [Code of Conduct]() when participating in discussions and contributing to the project.
+Please follow the [Code of Conduct](Code-of-Conduct.md) when participating in discussions and contributing to the project.
 
 
 Thank you for your contributions!
