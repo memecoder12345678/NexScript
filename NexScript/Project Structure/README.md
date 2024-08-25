@@ -1,7 +1,7 @@
 # Project Structure
 
 ```plaintext
-Repository/
+Repository
  ├── NexScript/
  │    ├── grammar/
  │    │   └── grammar.txt
@@ -10,9 +10,13 @@ Repository/
  │    │   └── test.nex
  │    ├── Project Structure/
  │    │   └── README.md
+ │    ├── docs/
+ │    │   ├── Code-of-Conduct.md
+ │    │   └── Contributing.md
  │    ├── NexRun.py
  │    ├── NexScript.py
  │    ├── shell.py
  │    └── strings_error.py
  └── README.md
+
 ```
