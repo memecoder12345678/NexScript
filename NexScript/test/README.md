@@ -1,3 +1,10 @@
 # result after running
----
-![result after running](https://github.com/memecoder12345678/test/blob/main/result_code.png)
+```cmd
+Microsoft Windows [Version 10.0.19042.1706]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Admin>cd NexScript\NexScript
+C:\Users\Admin\NexScript\NexScript>pyhton NexRun.py C:\Users\Admin\Desktop\test.nex
+Hello, world
+0
+```
