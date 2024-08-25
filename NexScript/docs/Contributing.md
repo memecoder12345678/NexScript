@@ -29,7 +29,7 @@ Thank you for considering contributing to NexScript! Your contributions help mak
    ```
 6. **Push your changes**: 
    ```bash
-   git push origin your-branch-name
+   git push origin main
    ```
 7. **Create a pull request**: Go to the [Pull Requests](https://github.com/memecoder12345678/NexScript/pulls) section of the repository and click on "New Pull Request". Select your branch and submit the pull request with a description of your changes.
 
