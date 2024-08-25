@@ -1,5 +1,7 @@
 # NexScript Programming Language - Introduction 🖥️
-
+---
+![NexScript_icon](https://github.com/memecoder12345678/test/blob/main/icon.ico)
+---
 **Author:** `memecoder`
 
 **Language:** `Python`
