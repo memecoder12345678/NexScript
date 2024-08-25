@@ -1,0 +1,41 @@
+STATEMENTS  : (NEWLINE* STATEMENT)+
+
+STATEMENT   : "RETURN" EXPR
+            | "CONTINUE"
+            | "BREAK"
+            | EXPR
+
+EXPR        : "SET" IDENTIFIER "=" EXPR
+            | COMP_EXPR (("AND" | "OR") COMP_EXPR)*
+
+COMP_EXPR   : ARITH_EXPR (("==" | "<" | ">" | "<=" | ">=") ARITH_EXPR)*
+            | "NOT" COMP_EXPR
+
+ARITH_EXPR  : TERM (("+" | "-") TERM)*
+
+TERM        : FACTOR (("*" | "/") FACTOR)*
+
+FACTOR      : ("+" | "-") FACTOR
+            | POWER
+
+POWER       : CALL ("^" FACTOR)*
+
+CALL        : ATOM ("(" (EXPR ("," EXPR)*)? ")")?
+
+ATOM        : INT | FLOAT | STRING | IDENTIFIER
+            | "(" EXPR ")"
+            | LIST_EXPR
+            | IF_EXPR
+            | FOR_EXPR
+            | LOOP_EXPR
+            | FUNC_DEF
+
+LIST_EXPR   : "[" (EXPR ("," EXPR)*) "]"
+
+IF_EXPR     : "IF" EXPR "THEN" STATEMENT ("ELSEIF" EXPR "THEN" STATEMENT)* ("ELSE" STATEMENT)? "END"
+
+FOR_EXPR    : "FOR" IDENTIFIER "=" EXPR "TO" EXPR ("STEP" EXPR)? "THEN" STATEMENT "END"
+
+LOOP_EXPR   : "LOOP" EXPR "THEN" STATEMENT "END"
+
+FUNC_DEF    : "FUNC" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" ("ARROW" EXPR)? "END"
