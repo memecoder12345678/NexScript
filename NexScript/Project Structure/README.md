@@ -2,6 +2,8 @@
 
 ```markdown
 Repository
+ ├── LICENSE/
+ │    └── LICENSE.txt
  ├── NexScript/
  │    ├── grammar/
  │    │   └── grammar.txt
