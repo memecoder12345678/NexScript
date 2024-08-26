@@ -43,7 +43,7 @@ This is the root directory of the NexScript project, containing all the necessar
 
   - **NexRun.py**: The main execution file for NexScript. This Python script is responsible for reading and executing NexScript code from `.nex` files. Running this file will execute the commands written in NexScript.
 
-  - **NexScript.py**: This file likely contains the core interpreter or compiler for NexScript. It handles the syntax and semantics defined in `grammar.txt`, making the language run by interpreting or compiling the code.
+  - **NexScript.py**: This file likely contains the core interpreter for NexScript. It handles the syntax and semantics defined in `grammar.txt`, making the language run by interpreting the code.
 
   - **shell.py**: Provides a command-line interface (CLI) or shell for NexScript, allowing users to input commands directly and see results immediately. It's a useful tool for quick development and testing.
 
