@@ -1669,8 +1669,15 @@ class BuiltInFunction(BaseFunction):
   execute_print.arg_names = ['value']
   
   def execute_print_ret(self, exec_ctx):
-    return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
-  execute_print_ret.arg_names = ['value']
+    while True:
+      text = input()
+      try:
+          number = float(text)
+        break
+      except ValueError:
+        print(f"'{text}' must be an integer or float. Try again!")
+    return RTResult().success(Number(number))
+  execute_input_int.arg_names = []
   
   def execute_input(self, exec_ctx):
     text = input()
@@ -1681,9 +1688,6 @@ class BuiltInFunction(BaseFunction):
     while True:
       text = input()
       try:
-        if '.' in text:
-          number = float(text)
-        else:
           number = int(text)
         break
       except ValueError:
@@ -2130,9 +2134,9 @@ global_symbol_table.set("FALSE", Number.false)
 global_symbol_table.set("TRUE", Number.true)
 global_symbol_table.set("MATH_PI", Number.math_PI)
 global_symbol_table.set("ECHO", BuiltInFunction.print)
-global_symbol_table.set("ECHO_RET", BuiltInFunction.print_ret)
+global_symbol_table.set("INPUT_FLOAT", BuiltInFunction.print_ret)
 global_symbol_table.set("INPUT", BuiltInFunction.input)
-global_symbol_table.set("INPUT_NUMBER", BuiltInFunction.input_int)
+global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
 global_symbol_table.set("CLEAR", BuiltInFunction.clear)
 global_symbol_table.set("CLS", BuiltInFunction.clear)
 global_symbol_table.set("IS_NUM", BuiltInFunction.is_number)
