@@ -1,6 +1,6 @@
 # Project Structure
 
-```plaintext
+```markdown
 Repository
  ├── NexScript/
  │    ├── grammar/
@@ -14,8 +14,8 @@ Repository
  │    │   └── README.md
  │    ├── docs/
  │    │   ├── Code-of-Conduct.md
- │    │   ├── VERSION.md
- │    │   └── Contributing.md
+ │    │   ├── Contributing.md
+ │    │   └── VERSION.md
  │    ├── NexRun.py
  │    ├── NexScript.py
  │    ├── shell.py
