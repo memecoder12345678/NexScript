@@ -11,7 +11,8 @@ This update includes various improvements and new features for the NexScript lan
   - **Description:** Added `INPUT_FLOAT` function to allow users to input floating-point numbers. This expands the input capabilities of the language to handle more diverse numeric data types.
   - **Usage:** 
     ```nex
-    SET number = INPUT_FLOAT("Enter a floating-point number: ")
+    ECHO("Enter a floating-point number:")
+    SET number = INPUT_FLOAT()
     ```
 
 ### Improvements
