@@ -1,7 +1,7 @@
 # Project Structure
 
 ```markdown
-NexScript-Repository
+NexScript-Repository/
  ├── LICENSE/
  │    └── LICENSE.txt
  │
@@ -20,7 +20,7 @@ NexScript-Repository
  │    │   ├── test-3.nex
  │    │   └── test-4.nex
  │    │
- │    ├── docs/
+ │    ├── Docs/
  │    │   ├── Code-of-Conduct.md
  │    │   ├── Contributing.md
  │    │   └── VERSION.md
