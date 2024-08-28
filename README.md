@@ -12,18 +12,36 @@
 
 NexScript supports various expressions and statements, including conditional logic, loops, function definitions, and more.
 
+### Expressions
+- **Expression Assignment**: 
+  - `SET IDENTIFIER = expr` - Assigns an expression to an identifier.
+- **Compound Expressions**: 
+  - Supports logical operations using `AND` and `OR`.
+
+### Main Functions
+
+- **ECHO**: Outputs a value or string.
+- **INPUT**: Receives input from the user.
+- **INPUT_INT**: Receives input as an integer.
+- **INPUT_FLOAT**: Receives input as a float.
+- **CLEAR**: Clears the screen.
+- **IS_NUM**: Checks if a value is a number.
+- **IS_STR**: Checks if a value is a string.
+- **IS_LIST**: Checks if a value is a list.
+- **IS_FUNC**: Checks if a value is a function.
+- **APPEND**: Adds an item to a list.
+- **POP**: Removes an item from a list.
+- **EXTEND**: Extends a list with additional items.
+- **LEN**: Gets the length of a list.
+- **RUN**: Executes system commands.
+
+
 ### Statements
 - **Statement Types**: 
   - `RETURN expr` - Returns an expression if provided.
   - `CONTINUE` - Skips to the next iteration in a loop.
   - `BREAK` - Exits the loop.
   - General expression handling.
-
-### Expressions
-- **Expression Assignment**: 
-  - `SET IDENTIFIER = expr` - Assigns an expression to an identifier.
-- **Compound Expressions**: 
-  - Supports logical operations using `AND` and `OR`.
 
 ### Arithmetic Operations
 - **Arithmetic Expressions**: 
@@ -133,7 +151,10 @@ To run a `.nex` file, you can use the `NexRun` script. Follow these steps:
 Where:
 - `NexRun.py` is the script that interprets and runs your NexScript programs.
 - `path\to\your\file.nex` is the path to the NexScript file you want to execute.
+---
+NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. You can also refer to the `grammar.txt` file for more details on the language's grammar and syntax 📝🚀
 
 ---
+If you have any questions, please contact us via email at: [memecoder17@gmail.com](mailto:memecoder17@gmail.com)
+---
 
-NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. You can also refer to the `grammar.txt` file for more details on the language's grammar and syntax 📝🚀
