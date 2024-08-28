@@ -16,19 +16,25 @@ def clear_code(code):
         if new_line.strip():
             cleaned_lines.append(new_line)
     return "\n".join(cleaned_lines)
-while True:
-    text = input('>>> ')
-    text = clear_code(text)
-    if text.strip() == "": continue
-    if text == "EXIT": break
-    result, error = NexScript.run('<stdin>', text)
-    if error:
-        if hasattr(error, 'as_string'):
-            print(error.as_string())
-        else:
-            print(error)
-    elif result:
-        if len(result.elements) == 1:
-            print(repr(result.elements[0]))
-        else:
-            print(repr(result))
+try:
+    while True:
+        text = input('>>> ')
+        text = clear_code(text)
+        if text.strip() == "": continue
+        if text == "EXIT": break
+        result, error = NexScript.run('<stdin>', text)
+        if error:
+            if hasattr(error, 'as_string'):
+                print(error.as_string())
+            else:
+                print(error)
+        elif result:
+            if len(result.elements) == 1:
+                print(repr(result.elements[0]))
+            else:
+                print(repr(result))
+except KeyboardInterrupt:
+    print('TIP: Use command "EXIT" to exit.')
+except Exception as e:
+    print(e)
+
