@@ -1673,7 +1673,7 @@ class BuiltInFunction(BaseFunction):
       text = input()
       try:
           number = float(text)
-        break
+          break
       except ValueError:
         print(f"'{text}' must be an integer or float. Try again!")
     return RTResult().success(Number(number))
@@ -1689,7 +1689,7 @@ class BuiltInFunction(BaseFunction):
       text = input()
       try:
           number = int(text)
-        break
+          break
       except ValueError:
         print(f"'{text}' must be an integer or float. Try again!")
     return RTResult().success(Number(number))
