@@ -17,7 +17,8 @@ Repository
  │    │   ├── README.md
  │    │   ├── test-1.nex
  │    │   ├── test-2.nex
- │    │   └── test-3.nex
+ │    │   ├── test-3.nex
+ │    │   └── test-4.nex
  │    │
  │    ├── docs/
  │    │   ├── Code-of-Conduct.md
