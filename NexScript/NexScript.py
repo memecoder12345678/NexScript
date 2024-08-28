@@ -1,4 +1,5 @@
 from strings_error import * # type: ignore
+import subprocess
 import string as string_ascii
 import os
 import math
@@ -1802,13 +1803,7 @@ class BuiltInFunction(BaseFunction):
   execute_len.arg_names = ["list"]
 
   def execute_run(self, exec_ctx):
-      command = exec_ctx.symbol_table.get("fn")
-      if not isinstance(command, String):
-          return RTResult().failure(RTError(
-              self.pos_start, self.pos_end,
-              "Second argument must be a string",
-              exec_ctx
-          ))
+      command = exec_ctx.symbol_table.get("command")
       command = command.value
       try:
           if os.name == "nt":
