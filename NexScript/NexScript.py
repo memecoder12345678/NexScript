@@ -1675,9 +1675,9 @@ class BuiltInFunction(BaseFunction):
           number = float(text)
           break
       except ValueError:
-        print(f"'{text}' must be an integer or float. Try again!")
+        print(f"'{text}' must be an float. Try again!")
     return RTResult().success(Number(number))
-  execute_input_int.arg_names = []
+  execute_print_ret.arg_names = []
   
   def execute_input(self, exec_ctx):
     text = input()
@@ -1685,14 +1685,15 @@ class BuiltInFunction(BaseFunction):
   execute_input.arg_names = []
 
   def execute_input_int(self, exec_ctx):
-    while True:
-      text = input()
-      try:
-          number = int(text)
-          break
-      except ValueError:
-        print(f"'{text}' must be an integer or float. Try again!")
-    return RTResult().success(Number(number))
+        while True:
+            text = input()
+            try:
+                number = int(text)
+                break
+            except ValueError:
+                print(f"'{text}' must be an integer. Try again!")
+        return RTResult().success(Number(number))
+        
   execute_input_int.arg_names = []
 
 
@@ -1800,34 +1801,34 @@ class BuiltInFunction(BaseFunction):
     return RTResult().success(Number(len(list_.elements)))
   execute_len.arg_names = ["list"]
 
-def execute_run(self, exec_ctx):
-    command = exec_ctx.symbol_table.get("fn")
-    if not isinstance(command, String):
-        return RTResult().failure(RTError(
-            self.pos_start, self.pos_end,
-            "Second argument must be a string",
-            exec_ctx
-        ))
-    command = command.value
-    try:
-        if os.name == "nt":
-            subprocess.run(command, shell=True, check=True)
-        else:
-            subprocess.run(command, shell=True, check=True)
-    except subprocess.CalledProcessError as e:
-        return RTResult().failure(RTError(
-            self.pos_start, self.pos_end,
-            f"Command failed with error: {e}",
-            exec_ctx
-        ))
-    except Exception as e:
-        return RTResult().failure(RTError(
-            self.pos_start, self.pos_end,
-            f"Failed to execute command: {e}",
-            exec_ctx
-        ))
-    return RTResult().success(Number.null)
-execute_run.arg_names = ["command"]
+  def execute_run(self, exec_ctx):
+      command = exec_ctx.symbol_table.get("fn")
+      if not isinstance(command, String):
+          return RTResult().failure(RTError(
+              self.pos_start, self.pos_end,
+              "Second argument must be a string",
+              exec_ctx
+          ))
+      command = command.value
+      try:
+          if os.name == "nt":
+              subprocess.run(command, shell=True, check=True)
+          else:
+              subprocess.run(command, shell=True, check=True)
+      except subprocess.CalledProcessError as e:
+          return RTResult().failure(RTError(
+              self.pos_start, self.pos_end,
+              f"Command failed with error: {e}",
+              exec_ctx
+          ))
+      except Exception as e:
+          return RTResult().failure(RTError(
+              self.pos_start, self.pos_end,
+              f"Failed to execute command: {e}",
+              exec_ctx
+          ))
+      return RTResult().success(Number.null)
+  execute_run.arg_names = ["command"]
 
 BuiltInFunction.print       = BuiltInFunction("print")
 BuiltInFunction.print_ret   = BuiltInFunction("print_ret")
