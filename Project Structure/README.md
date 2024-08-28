@@ -1,7 +1,7 @@
 # Project Structure
 
 ```markdown
-Repository
+NexScript(Repository)
  ├── LICENSE/
  │    └── LICENSE.txt
  │
