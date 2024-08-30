@@ -15,6 +15,7 @@ NexScript-Repository/
  │    │
  │    ├── grammar/
  │    │   └── grammar.txt
+ │    │
  │    ├── test/
  │    │   ├── README.md
  │    │   ├── test-1.nex
