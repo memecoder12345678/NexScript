@@ -1,0 +1,9 @@
+ECHO("Enter any integer (X)")
+SET x = INPUT_INT()
+IF x >= 10 THEN
+  ECHO("X is greater than 10 or equal to 10")
+ELIF x >= 5 THEN
+  ECHO("X is greater than 5 or equal to 5")
+ELSE
+  ECHO("X is less than 5")
+END

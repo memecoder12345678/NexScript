@@ -1,0 +1,11 @@
+FUNC factorial(n)
+    SET result = 1
+    FOR i = 1 TO n THEN
+        SET result = result * i
+    END
+    RETURN result
+END
+
+SET num = 5
+ECHO("Factorial of num is:  ")
+ECHO(factorial(num))
