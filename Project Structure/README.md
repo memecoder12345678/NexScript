@@ -11,7 +11,9 @@ NexScript-Repository/
  ├── NexScript/
  │    ├── Compiler/
  │    │   ├── nex2exec.py
- │    │   └── requirements.txt
+ │    │   ├── NexScript.py
+ │    │   ├── requirements.txt
+ │    │   └── strings_error.py
  │    │
  │    ├── grammar/
  │    │   └── grammar.txt
@@ -34,5 +36,4 @@ NexScript-Repository/
  │    └── strings_error.py
  │
  └── README.md
-
 ```
