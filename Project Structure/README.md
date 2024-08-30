@@ -8,11 +8,13 @@ NexScript-Repository/
  ├── Project Structure/
  │   └── README.md
  │
- ├── grammar/
- │   └── grammar.txt
- │
  ├── NexScript/
+ │    ├── Compiler/
+ │    │   ├── nex2exec.py
+ │    │   └── requirements.txt
  │    │
+ │    ├── grammar/
+ │    │   └── grammar.txt
  │    ├── test/
  │    │   ├── README.md
  │    │   ├── test-1.nex
