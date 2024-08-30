@@ -54,12 +54,18 @@ elif result:
 """
         with open(tempfile, "w") as f:
             f.write(code_in_file)
-        os.system("echo The program is being compiled...")
+        print("The program is being compiled...")
         rs = os.system(f"pyinstaller --onefile --name {filename.replace('.nex', '')} {tempfile}")
         if rs  == 0:
-            os.system("echo The program has been compiled successfully!")
+            print("The program has been compiled successfully!")
+            if os.name ==  'nt':
+                print(f"The executable file is located in the 'dist' subdirectory of the compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', '.exe'))}")
+            else:
+                print(f"The executable file is located in the 'dist' subdirectory of the compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', ''))}")
+
         else:
-            os.system("echo An error occurred during compilation!")
+            print("echo An error occurred during compilation!")
+            
             return
         try:
             if os.path.exists(tempfile):
