@@ -59,12 +59,12 @@ elif result:
         if rs  == 0:
             print("The program has been compiled successfully!")
             if os.name ==  'nt':
-                print(f"The executable file is located in the 'dist' subdirectory of the compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', '.exe'))}")
+                print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', '.exe'))}")
             else:
-                print(f"The executable file is located in the 'dist' subdirectory of the compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', ''))}")
+                print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', ''))}")
 
         else:
-            print("echo An error occurred during compilation!")
+            print("An error occurred during compilation!")
             
             return
         try:
