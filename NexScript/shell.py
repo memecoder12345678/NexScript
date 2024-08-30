@@ -34,7 +34,7 @@ try:
             else:
                 print(repr(result))
 except KeyboardInterrupt:
-    print('TIP: Use command "EXIT" to exit.')
+    print('EXIT...')
 except Exception as e:
     print(e)
 
