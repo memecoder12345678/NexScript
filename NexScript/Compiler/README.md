@@ -11,7 +11,7 @@
 
 - **Supported Architecture**:
   - x86_64
-- **Note**: To create files for operating          systems with architectures different from x86_64, you will need to build a bootloader tailored to the architecture of that operating system
+- **Note**: To create files for operating          systems with architectures different from x86_64, you will need to build a bootloader tailored to the architecture of that operating system.
 
 ## Installation
 
