@@ -2,6 +2,7 @@
 
 ```markdown
 NexScript-Repository/
+ │
  ├── LICENSE/
  │    └── LICENSE.txt
  │
