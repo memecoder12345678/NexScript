@@ -18,17 +18,17 @@ NexScript supports various expressions and statements, including conditional log
 - **Compound Expressions**: 
   - Supports logical operations using `AND` and `OR`.
 
-### Main Functions
+### Built-in Function
 
 - **ECHO**: Outputs a value or string.
 - **INPUT**: Receives input from the user.
-- **INPUT_INT**: Receives input as an integer.
-- **INPUT_FLOAT**: Receives input as a float.
+- **INPUT-INT**: Receives input as an integer.
+- **INPUT-FLOAT**: Receives input as a float.
 - **CLEAR**: Clears the screen.
-- **IS_NUM**: Checks if a value is a number.
-- **IS_STR**: Checks if a value is a string.
-- **IS_LIST**: Checks if a value is a list.
-- **IS_FUNC**: Checks if a value is a function.
+- **IS-NUM**: Checks if a value is a number.
+- **IS-STR**: Checks if a value is a string.
+- **IS-LIST**: Checks if a value is a list.
+- **IS-FUNC**: Checks if a value is a function.
 - **APPEND**: Adds an item to a list.
 - **POP**: Removes an item from a list.
 - **EXTEND**: Extends a list with additional items.
