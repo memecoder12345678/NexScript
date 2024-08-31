@@ -22,13 +22,13 @@ NexScript supports various expressions and statements, including conditional log
 
 - **ECHO**: Outputs a value or string.
 - **INPUT**: Receives input from the user.
-- **INPUT-INT**: Receives input as an integer.
-- **INPUT-FLOAT**: Receives input as a float.
+- **INPUT_INT**: Receives input as an integer.
+- **INPUT_FLOAT**: Receives input as a float.
 - **CLEAR**: Clears the screen.
 - **IS-NUM**: Checks if a value is a number.
-- **IS-STR**: Checks if a value is a string.
-- **IS-LIST**: Checks if a value is a list.
-- **IS-FUNC**: Checks if a value is a function.
+- **IS_STR**: Checks if a value is a string.
+- **IS_LIST**: Checks if a value is a list.
+- **IS_FUNC**: Checks if a value is a function.
 - **APPEND**: Adds an item to a list.
 - **POP**: Removes an item from a list.
 - **EXTEND**: Extends a list with additional items.
@@ -71,7 +71,7 @@ NexScript supports various expressions and statements, including conditional log
 
 ```nexscript
 ECHO("Enter any integer (X)")
-SET x = INPUT-INT()
+SET x = INPUT_INT()
 
 $ If-else condition
 IF x >= 10 THEN
