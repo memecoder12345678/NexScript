@@ -71,7 +71,7 @@ NexScript supports various expressions and statements, including conditional log
 
 ```nexscript
 ECHO("Enter any integer (X)")
-SET x = INPUT_INT()
+SET x = INPUT-INT()
 
 $ If-else condition
 IF x >= 10 THEN
