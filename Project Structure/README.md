@@ -9,7 +9,9 @@ NexScript-Repository/
  │   └── README.md
  │
  ├── NexScript/
+ │    │   
  │    ├── Compiler/
+ │    │   ├── README.md
  │    │   ├── nex2exec.py
  │    │   ├── NexScript.py
  │    │   ├── requirements.txt
