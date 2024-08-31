@@ -1660,7 +1660,7 @@ class BuiltInFunction(BaseFunction):
     return copy
 
   def __repr__(self):
-    return f"<built-in function {self.name}>"
+    return f"<built-in function>"
 
 
 
