@@ -21,7 +21,9 @@ try:
         text = input('>>> ')
         text = clear_code(text)
         if text.strip() == "": continue
-        if text == "EXIT": break
+        if text == "EXIT": 
+            print('EXIT...')
+            break
         result, error = NexScript.run('<stdin>', text)
         if error:
             if hasattr(error, 'as_string'):
