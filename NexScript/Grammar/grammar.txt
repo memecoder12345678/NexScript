@@ -1,5 +1,3 @@
-STATEMENTS  : (NEWLINE* STATEMENT)+
-
 STATEMENT   : "RETURN" EXPR
             | "CONTINUE"
             | "BREAK"
