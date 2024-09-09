@@ -1,3 +1,4 @@
+# NexScript (v1.6.2, Aug 28 2024, 11:52:23)
 from strings_error import * # type: ignore
 import subprocess
 import string as string_ascii
