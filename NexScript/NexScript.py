@@ -1427,10 +1427,7 @@ class BuiltInFunction(BaseFunction):
       command = exec_ctx.symbol_table.get("command")
       command = command.value
       try:
-          if os.name == "nt":
-              subprocess.run(command, shell=True, check=True)
-          else:
-              subprocess.run(command, shell=True, check=True)
+          subprocess.run(command, shell=True, check=True)
       except subprocess.CalledProcessError as e:
           return RTResult().failure(RTError(
               self.pos_start, self.pos_end,
