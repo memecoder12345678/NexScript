@@ -1,17 +1,18 @@
 # NexScript Version History
 
-## Version 1.6.2
-**Release Date:** August 2024
+## Version 1.7.0
+**Release Date:** September 2024
 
 ### Overview
 This update includes various improvements and new features for the NexScript language.
 
 ### New Features
-- **`RUN` Function:** 
-  - **Added `Run` function**: This new function allows you to execute system commands from within your NexScript code.
+- **`INPUT`, `INPUT_INT`, `INPUT_FLOAT` Function:** 
+  - **Update `INPUT`, `INPUT_INT`, `INPUT_FLOAT` function**: Add support for passing the input message to the function.
 - **Usage:**
    ```nex
-   RUN("echo print('Hello, World!') > code.py&&python code.py")
+   SET name = INPUT("Enter your name: ")
+   ECHO(name)
    ```
 
 ### Improvements
