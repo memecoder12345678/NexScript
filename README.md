@@ -70,8 +70,7 @@ NexScript supports various expressions and statements, including conditional log
 ### Example Code Snippets
 
 ```nexscript
-ECHO("Enter any integer (X)")
-SET x = INPUT_INT()
+SET X = INPUT_INT("Enter any integer (X): ")
 
 $ If-else condition
 IF x >= 10 THEN
