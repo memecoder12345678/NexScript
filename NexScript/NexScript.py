@@ -1,4 +1,4 @@
-# NexScript (v1.6.2, Aug 28 2024, 11:52:23)
+# NexScript (v1.7.1, Aug 28 2024, 11:52:23)
 from strings_error import * # type: ignore
 import subprocess
 import string as string_ascii
@@ -1316,28 +1316,28 @@ class BuiltInFunction(BaseFunction):
   execute_print.arg_names = ['value']
   def execute_print_ret(self, exec_ctx):
     while True:
-      text = input()
+      text = input(str(exec_ctx.symbol_table.get('value')))
       try:
           number = float(text)
           break
       except ValueError:
         print(f"'{text}' must be an float. Try again!")
     return RTResult().success(Number(number))
-  execute_print_ret.arg_names = []
+  execute_print_ret.arg_names = [str('value')]
   def execute_input(self, exec_ctx):
-    text = input()
+    text = input(str(exec_ctx.symbol_table.get('value')))
     return RTResult().success(String(text))
-  execute_input.arg_names = []
+  execute_input.arg_names = ['value']
   def execute_input_int(self, exec_ctx):
         while True:
-            text = input()
+            text = input(str(exec_ctx.symbol_table.get('value')))
             try:
                 number = int(text)
                 break
             except ValueError:
                 print(f"'{text}' must be an integer. Try again!")
         return RTResult().success(Number(number))
-  execute_input_int.arg_names = []
+  execute_input_int.arg_names = ['value']
   def execute_clear(self, exec_ctx):
     os.system('cls' if os.name == 'nt' else 'clear') 
     return RTResult().success(Number.null)
