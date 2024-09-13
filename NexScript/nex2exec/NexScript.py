@@ -1,4 +1,4 @@
-# This is an important file for converting NexScript file to executable files, so it should not be modified
+# This is an important file for converting NexScript source file to executable files, so it should not be modified
 from strings_error import * # type: ignore
 import subprocess
 import string as string_ascii
