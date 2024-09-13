@@ -11,7 +11,7 @@ NexScript-Repository/
  │
  ├── NexScript/
  │    │   
- │    ├── Compiler/
+ │    ├── nex2exec/
  │    │   ├── README.md
  │    │   ├── nex2exec.py
  │    │   ├── NexScript.py
@@ -25,8 +25,7 @@ NexScript-Repository/
  │    │   ├── README.md
  │    │   ├── test-1.nex
  │    │   ├── test-2.nex
- │    │   ├── test-3.nex
- │    │   └── test-4.nex
+ │    │   └── test-3.nex
  │    │
  │    ├── Docs/
  │    │   ├── Code-of-Conduct.md
