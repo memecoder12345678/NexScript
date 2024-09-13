@@ -1,5 +1,4 @@
-ECHO("Enter any integer (X)")
-SET x = INPUT_INT()
+SET x = INPUT_INT("Enter any integer (X): ")
 IF x >= 10 THEN
   ECHO("X is greater than 10 or equal to 10")
 ELIF x >= 5 THEN
