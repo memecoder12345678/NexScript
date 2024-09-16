@@ -3,8 +3,7 @@
 ```markdown
 NexScript-Repository/
  │
- ├── LICENSE/
- │    └── LICENSE.txt
+ ├── LICENSE
  │
  ├── Project Structure/
  │   └── README.md
