@@ -3,8 +3,6 @@
 ```markdown
 NexScript-Repository/
  │
- ├── LICENSE
- │
  ├── Project Structure/
  │   └── README.md
  │
@@ -35,6 +33,8 @@ NexScript-Repository/
  │    ├── NexScript.py
  │    ├── shell.py
  │    └── strings_error.py
+ |
+ ├── LICENSE
  │
  └── README.md
 ```
