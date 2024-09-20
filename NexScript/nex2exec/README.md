@@ -1,6 +1,6 @@
 # nex2exec.py
 
-`nex2exec.py` is a tool designed to convert NexScript code into executable files for various operating systems, including macOS, Windows, and Linux, with x86_64 architecture. This tool supports both PyInstaller and Nuitka for the compilation process.
+`nex2exec.py` is a tool designed to convert NexScript code into executable files for various operating systems, including macOS, Windows, and Linux. This tool supports both PyInstaller and Nuitka for the compilation process.
 
 ## Features
 
@@ -8,11 +8,6 @@
   - macOS
   - Windows
   - Linux
-
-- **Supported Architecture**:
-  - x86_64
-
-- **Note**: For creating executables for operating systems with architectures other than x86_64, you will need to develop a bootloader specific to the target operating system's architecture.
 
 ## Installation
 
