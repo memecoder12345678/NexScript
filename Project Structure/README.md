@@ -3,17 +3,12 @@
 ```markdown
 NexScript-Repository/
  │
- ├── Project Structure/
- │   └── README.md
- │
+ ├── Docs/
+ │   ├── Code-of-Conduct.md
+ │   ├── Contributing.md
+ │   └── VERSION.md
+ |
  ├── NexScript/
- │    │   
- │    ├── nex2exec/
- │    │   ├── README.md
- │    │   ├── nex2exec.py
- │    │   ├── NexScript.py
- │    │   ├── requirements.txt
- │    │   └── strings_error.py
  │    │
  │    ├── grammar/
  │    │   └── grammar.txt
@@ -24,17 +19,22 @@ NexScript-Repository/
  │    │   ├── test-2.nex
  │    │   └── test-3.nex
  │    │
- │    ├── Docs/
- │    │   ├── Code-of-Conduct.md
- │    │   ├── Contributing.md
- │    │   └── VERSION.md
+ │    ├── nex2exec/
+ │    │   ├── README.md
+ │    │   ├── nex2exec.py
+ │    │   ├── NexScript.py
+ │    │   ├── requirements.txt
+ │    │   └── strings_error.py
  │    │
  │    ├── NexRun.py
  │    ├── NexScript.py
  │    ├── shell.py
  │    └── strings_error.py
  |
- ├── LICENSE
+ ├── Project Structure/
+ │   └── README.md
+ │
+ ├── LICENSE.md
  │
  └── README.md
 ```
