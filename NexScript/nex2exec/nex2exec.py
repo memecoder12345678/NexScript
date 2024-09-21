@@ -1,5 +1,6 @@
 # nex2exec (v1.2.0, September 2024, 23:34)
 import os
+import sys
 import random
 tempfile = "tempfile[" + str(random.randint(0, 9999999999)) + "].py"
 def clear_code(code):
