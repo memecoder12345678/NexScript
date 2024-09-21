@@ -20,9 +20,9 @@ NexScript-Repository/
  │    │   └── test-3.nex
  │    │
  │    ├── nex2exec/
+ │    │   ├── NexScript.py
  │    │   ├── README.md
  │    │   ├── nex2exec.py
- │    │   ├── NexScript.py
  │    │   ├── requirements.txt
  │    │   └── strings_error.py
  │    │
