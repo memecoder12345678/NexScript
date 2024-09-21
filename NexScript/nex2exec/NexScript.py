@@ -1,4 +1,5 @@
 # NexScript (v1.7.0, September 2024, 22:06)
+# This is a file to build an executable file so don't change it.
 from strings_error import * # type: ignore
 import subprocess
 import string as string_ascii
