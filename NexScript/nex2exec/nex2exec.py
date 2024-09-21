@@ -1,13 +1,6 @@
 # nex2exec (v1.2.0, September 2024, 23:34)
 import os
-import sys
-import random
-version = sys.version_info
-if version.major == 3 and version.minor == 12:
-    pass
-else:
-    print(f"Error: Python 3.12 is required. Current version is {version.major}.{version.minor}.{version.micro}")
-    exit(1)
+import random
 tempfile = "tempfile[" + str(random.randint(0, 9999999999)) + "].py"
 def clear_code(code):
     cleaned_lines = []
