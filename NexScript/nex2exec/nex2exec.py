@@ -1,7 +1,7 @@
-# nex2exec (v1.2.0, September 2024, 23:34)
-import os
+# nex2exec (v1.3.0, September 2024, 23:34)
+import random
 import sys
-import random
+import os
 tempfile = "tempfile[" + str(random.randint(0, 9999999999)) + "].py"
 def clear_code(code):
     cleaned_lines = []
@@ -62,15 +62,16 @@ elif result:
             f.write(code_in_file)
         print("The program is being compiled...")
         if compiler == '--pyinstaller':
-            rs = os.system(f"pyinstaller --onefile --name {filename.replace('.nex', '')} {tempfile}")
+            rs = os.system(f"pyinstaller --onefile --name {filename[:-4]} {tempfile}")
         elif compiler == '--nuitka':
-            rs = os.system(f"nuitka --standalone --onefile --output-dir=dist {tempfile}")
+            rs = os.system(f"nuitka --standalone --onefile --output-file={filename[:-4]} --output-dir=dist {tempfile}")
         if rs == 0:
             print("The program has been compiled successfully!")
             if os.name == 'nt':
-                print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', '.exe'))}")
+                print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename[:-4] + '.exe')}")
+
             else:
-                print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename.replace('.nex', ''))}")
+                print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename[:-4])}")
         else:
             print("An error occurred during compilation!")
             return
