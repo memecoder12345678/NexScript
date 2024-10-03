@@ -1,8 +1,7 @@
 # Project Structure
 
 ```markdown
-NexScript-Repository/
- │
+NexScript/
  ├── Docs/
  │   ├── Code-of-Conduct.md
  │   ├── Contributing.md
@@ -12,6 +11,10 @@ NexScript-Repository/
  │    │
  │    ├── grammar/
  │    │   └── grammar.txt
+ │    │
+ │    ├── IDE/
+ │    │   ├── IDE.py
+ │    │   └── requirements.txt
  │    │
  │    ├── test/
  │    │   ├── README.md
@@ -33,6 +36,8 @@ NexScript-Repository/
  |
  ├── Project Structure/
  │   └── README.md
+ |
+ ├── .gitignore
  │
  ├── LICENSE.md
  │

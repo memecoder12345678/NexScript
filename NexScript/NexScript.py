@@ -103,7 +103,7 @@ KEYWORDS = [
     'END',
     'RETURN',
     'CONTINUE',
-    'BREAK',
+    'BREAK'
 ]
 class Token:
     def __init__(self, type_, value=None, pos_start=None, pos_end=None):
@@ -1314,7 +1314,7 @@ class BuiltInFunction(BaseFunction):
         print(str(exec_ctx.symbol_table.get('value')))
         return RTResult().success(Number.null)
     execute_print.arg_names = ['value']
-    def execute_print_ret(self, exec_ctx):
+    def execute_print_ret(self, exec_ctx=None):
         while True:
             text = input(str(exec_ctx.symbol_table.get('value')))
             try:

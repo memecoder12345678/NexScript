@@ -104,7 +104,7 @@ KEYWORDS = [
     'END',
     'RETURN',
     'CONTINUE',
-    'BREAK',
+    'BREAK'
 ]
 class Token:
     def __init__(self, type_, value=None, pos_start=None, pos_end=None):
