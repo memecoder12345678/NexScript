@@ -12,10 +12,6 @@ NexScript/
  │    ├── grammar/
  │    │   └── grammar.txt
  │    │
- │    ├── IDE/
- │    │   ├── IDE.py
- │    │   └── requirements.txt
- │    │
  │    ├── test/
  │    │   ├── README.md
  │    │   ├── test-1.nex
