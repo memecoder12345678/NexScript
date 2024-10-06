@@ -1424,24 +1424,8 @@ class BuiltInFunction(BaseFunction):
         return RTResult().success(Number(len(list_.elements)))
     execute_len.arg_names = ["list"]
     def execute_run(self, exec_ctx):
-            command = exec_ctx.symbol_table.get("command")
-            command = command.value
-            try:
-                    subprocess.run(command, shell=True, check=True)
-            except subprocess.CalledProcessError as e:
-                    return RTResult().failure(RTError(
-                            self.pos_start, self.pos_end,
-                            f"Command failed with error: {e}",
-                            exec_ctx
-                    ))
-            except Exception as e:
-                    return RTResult().failure(RTError(
-                            self.pos_start, self.pos_end,
-                            f"Failed to execute command: {e}",
-                            exec_ctx
-                    ))
-            return RTResult().success(Number.null)
-    execute_run.arg_names = ["command"]
+        return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
+    execute_run.arg_names = ['value']
 BuiltInFunction.print = BuiltInFunction("print")
 BuiltInFunction.print_ret = BuiltInFunction("print_ret")
 BuiltInFunction.input = BuiltInFunction("input")
@@ -1685,7 +1669,7 @@ global_symbol_table.set("APPEND", BuiltInFunction.append)
 global_symbol_table.set("POP", BuiltInFunction.pop)
 global_symbol_table.set("EXTEND", BuiltInFunction.extend)
 global_symbol_table.set("LEN", BuiltInFunction.len)
-global_symbol_table.set("RUN", BuiltInFunction.run)
+global_symbol_table.set("STR", BuiltInFunction.run)
 def run(fn, text):
     lexer = Lexer(fn, text)
     tokens, error = lexer.make_tokens()
