@@ -1,1 +1,7 @@
-RUN("echo print('Hello, world!') > test.py&&python test.py")
+SET name = INPUT("Enter your name: ")
+SET msg =  "Hello, " + name + "!"
+CLS()
+FOR i = 0 TO 5 THEN
+	ECHO(msg)
+END
+INPUT("Press Enter to exit...")
