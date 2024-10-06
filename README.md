@@ -33,7 +33,7 @@ NexScript supports various expressions and statements, including conditional log
 - **POP**: Removes an item from a list.
 - **EXTEND**: Extends a list with additional items.
 - **LEN**: Gets the length of a list.
-- **RUN**: Executes system commands.
+- **STR**: convert numerical formats to strings.
 
 
 ### Statements
