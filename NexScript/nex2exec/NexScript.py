@@ -1314,7 +1314,7 @@ class BuiltInFunction(BaseFunction):
         print(str(exec_ctx.symbol_table.get('value')))
         return RTResult().success(Number.null)
     execute_print.arg_names = ['value']
-    def execute_print_ret(self, exec_ctx=None):
+    def execute_input_float(self, exec_ctx=None):
         while True:
             text = input(str(exec_ctx.symbol_table.get('value')))
             try:
@@ -1323,7 +1323,7 @@ class BuiltInFunction(BaseFunction):
             except ValueError:
                 print(f"'{text}' must be an float. Try again!")
         return RTResult().success(Number(number))
-    execute_print_ret.arg_names = [str('value')]
+    execute_input_float.arg_names = [str('value')]
     def execute_input(self, exec_ctx):
         text = input(str(exec_ctx.symbol_table.get('value')))
         return RTResult().success(String(text))
@@ -1423,12 +1423,12 @@ class BuiltInFunction(BaseFunction):
             ))
         return RTResult().success(Number(len(list_.elements)))
     execute_len.arg_names = ["list"]
-    def execute_run(self, exec_ctx):
+    def execute_str(self, exec_ctx):
         return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
-    execute_run.arg_names = ['value']
+    execute_str.arg_names = ['value']
 BuiltInFunction.print = BuiltInFunction("print")
-BuiltInFunction.print_ret = BuiltInFunction("print_ret")
 BuiltInFunction.input = BuiltInFunction("input")
+BuiltInFunction.input_float = BuiltInFunction("input_float")
 BuiltInFunction.input_int = BuiltInFunction("input_int")
 BuiltInFunction.clear = BuiltInFunction("clear")
 BuiltInFunction.is_number = BuiltInFunction("is_number")
@@ -1439,7 +1439,7 @@ BuiltInFunction.append = BuiltInFunction("append")
 BuiltInFunction.pop = BuiltInFunction("pop")
 BuiltInFunction.extend = BuiltInFunction("extend")
 BuiltInFunction.len = BuiltInFunction("len")
-BuiltInFunction.run = BuiltInFunction("run")
+BuiltInFunction.str = BuiltInFunction("str")
 class Context:
     def __init__(self, display_name, parent=None, parent_entry_pos=None):
         self.display_name = display_name
@@ -1656,7 +1656,7 @@ global_symbol_table.set("FALSE", Number.false)
 global_symbol_table.set("TRUE", Number.true)
 global_symbol_table.set("MATH_PI", Number.math_PI)
 global_symbol_table.set("ECHO", BuiltInFunction.print)
-global_symbol_table.set("INPUT_FLOAT", BuiltInFunction.print_ret)
+global_symbol_table.set("INPUT_FLOAT", BuiltInFunction.input_float)
 global_symbol_table.set("INPUT", BuiltInFunction.input)
 global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
 global_symbol_table.set("CLEAR", BuiltInFunction.clear)
@@ -1669,7 +1669,7 @@ global_symbol_table.set("APPEND", BuiltInFunction.append)
 global_symbol_table.set("POP", BuiltInFunction.pop)
 global_symbol_table.set("EXTEND", BuiltInFunction.extend)
 global_symbol_table.set("LEN", BuiltInFunction.len)
-global_symbol_table.set("STR", BuiltInFunction.run)
+global_symbol_table.set("STR", BuiltInFunction.str)
 def run(fn, text):
     lexer = Lexer(fn, text)
     tokens, error = lexer.make_tokens()
