@@ -1,6 +1,5 @@
 # NexScript (v1.7.0, September 2024, 22:06)
 # This is a file to build an executable file so don't change it.
-# NexScript (v1.7.0, September 2024, 22:06)
 from error import * # type: ignore
 import string as string_ascii
 import os
