@@ -5,7 +5,7 @@ def clear_code(code):
     cleaned_lines = []
     inside_string = False
     for line in code.splitlines():
-        new_line = ""
+        new_line = ''
         for char in line:
             if char == '"' and not inside_string:
                 inside_string = True
@@ -16,7 +16,7 @@ def clear_code(code):
             new_line += char
         if new_line.strip():
             cleaned_lines.append(new_line)
-    return "\n".join(cleaned_lines)
+    return '\n'.join(cleaned_lines)
 def main():
     if len(sys.argv) != 2:
         print("Usage: python NexRun.py <file_name.nex>")
@@ -46,5 +46,5 @@ def main():
     except IOError as e:
         print(f"Error reading file '{file_name}': {e}")
         return 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

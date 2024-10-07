@@ -1,6 +1,5 @@
 SET name = INPUT("Enter your name: ")
 SET msg =  "Hello, " + name + "!"
-CLS()
 FOR i = 0 TO 5 THEN
 	ECHO(msg)
 END

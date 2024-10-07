@@ -1,7 +1,6 @@
 # NexScript (v1.7.0, September 2024, 22:06)
 # This is a file to build an executable file so don't change it.
 from strings_error import * # type: ignore
-import subprocess
 import string as string_ascii
 import os
 import math
@@ -143,7 +142,7 @@ class Lexer:
         while self.current_char != None:
             if self.current_char in ' \t':
                 self.advance()
-            elif self.current_char in '\n':
+            elif self.current_char == '\n':
                 tokens.append(Token(TT_NEWLINE, pos_start=self.pos))
                 self.advance()
             elif self.current_char in DIGITS:
@@ -151,7 +150,7 @@ class Lexer:
             elif self.current_char in LETTERS:
                 tokens.append(self.make_identifier())
             elif self.current_char == '"':
-                tokens.append(self.make_string())
+                tokens.append(self.make_string(self.current_char))
             elif self.current_char == '+':
                 tokens.append(Token(TT_PLUS, pos_start=self.pos))
                 self.advance()
@@ -212,25 +211,25 @@ class Lexer:
             return Token(TT_INT, int(num_str), pos_start, self.pos)
         else:
             return Token(TT_FLOAT, float(num_str), pos_start, self.pos)
-    def make_string(self):
-        string = ''
+    def make_string(self, qt):
+        string = ""
         pos_start = self.pos.copy()
         escape_character = False
-        self.advance()
         escape_characters = {
             'n': '\n',
             't': '\t'
         }
-        while self.current_char != None and (self.current_char != '"' or escape_character):
+        self.advance()
+        while self.current_char is not None and (self.current_char != qt or escape_character):
             if escape_character:
-                string += escape_characters.get(self.current_char, self.current_char)
+                string += escape_characters.get(self.current_char, '\\' + self.current_char)
+                escape_character = False
             else:
                 if self.current_char == '\\':
                     escape_character = True
                 else:
                     string += self.current_char
             self.advance()
-            escape_character = False
         self.advance()
         return Token(TT_STRING, string, pos_start, self.pos)
     def make_identifier(self):
@@ -437,7 +436,7 @@ class Parser:
         if not res.error and self.current_tok.type != TT_EOF:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                "Token cannot appear after previous tokens"
+                'Token cannot appear after previous tokens'
             ))
         return res
     def statements(self):
@@ -504,7 +503,7 @@ class Parser:
             if self.current_tok.type != TT_IDENTIFIER:
                 return res.failure(InvalidSyntaxError(
                     self.current_tok.pos_start, self.current_tok.pos_end,
-                    "Expected identifier"
+                    'Expected identifier'
                 ))
             var_name = self.current_tok
             res.register_advancement()
@@ -780,7 +779,7 @@ class Parser:
         if self.current_tok.type != TT_IDENTIFIER:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                f"Expected identifier"
+                f'Expected identifier'
             ))
         var_name = self.current_tok
         res.register_advancement()
@@ -905,7 +904,7 @@ class Parser:
                 if self.current_tok.type != TT_IDENTIFIER:
                     return res.failure(InvalidSyntaxError(
                         self.current_tok.pos_start, self.current_tok.pos_end,
-                        f"Expected identifier"
+                        f'Expected identifier'
                     ))
                 arg_name_toks.append(self.current_tok)
                 res.register_advancement()
@@ -937,7 +936,7 @@ class Parser:
         if self.current_tok.type != TT_NEWLINE:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                f"Expected '->' or NEWLINE"
+                f"Expected '->' or new line"
             ))
         res.register_advancement()
         self.advance()
@@ -1234,7 +1233,7 @@ class List(Value):
 class BaseFunction(Value):
     def __init__(self, name):
         super().__init__()
-        self.name = name or "<anonymous>"
+        self.name = name or '<anonymous>'
     def generate_new_context(self):
         new_context = Context(self.name, self.context, self.pos_start)
         new_context.symbol_table = SymbolTable(new_context.parent.symbol_table)
@@ -1244,13 +1243,13 @@ class BaseFunction(Value):
         if len(args) > len(arg_names):
             return res.failure(RTError(
                 self.pos_start, self.pos_end,
-                f"{len(args) - len(arg_names)} too many args passed into {self}",
+                f'{len(args) - len(arg_names)} too many args passed into {self}',
                 self.context
             ))
         if len(args) < len(arg_names):
             return res.failure(RTError(
                 self.pos_start, self.pos_end,
-                f"{len(arg_names) - len(args)} too few args passed into {self}",
+                f'{len(arg_names) - len(args)} too few args passed into {self}',
                 self.context
             ))
         return res.success(None)
@@ -1288,7 +1287,7 @@ class Function(BaseFunction):
         copy.set_pos(self.pos_start, self.pos_end)
         return copy
     def __repr__(self):
-        return f"<function {self.name}>"
+        return f'<function {self.name}>'
 class BuiltInFunction(BaseFunction):
     def __init__(self, name):
         super().__init__(name)
@@ -1310,7 +1309,7 @@ class BuiltInFunction(BaseFunction):
         copy.set_pos(self.pos_start, self.pos_end)
         return copy
     def __repr__(self):
-        return f"<built-in function>"
+        return f'<built-in function>'
     def execute_print(self, exec_ctx):
         print(str(exec_ctx.symbol_table.get('value')))
         return RTResult().success(Number.null)

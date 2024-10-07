@@ -2,12 +2,12 @@
 import random
 import sys
 import os
-tempfile = "tempfile[" + str(random.randint(0, 9999999999)) + "].py"
+tempfile = 'tempfile[' + str(random.randint(0, 9999999999)) + '].py'
 def clear_code(code):
     cleaned_lines = []
     inside_string = False
     for line in code.splitlines():
-        new_line = ""
+        new_line = ''
         for char in line:
             if char == '"' and not inside_string:
                 inside_string = True
@@ -18,7 +18,7 @@ def clear_code(code):
             new_line += char
         if new_line.strip():
             cleaned_lines.append(new_line)
-    return "\n".join(cleaned_lines)
+    return '\n'.join(cleaned_lines)
 def main():
     global tempfile
     if len(sys.argv) != 3:
@@ -58,31 +58,31 @@ elif result:
     else:
         print(repr(result))
 """
-        with open(tempfile, "w") as f:
+        with open(tempfile, 'w') as f:
             f.write(code_in_file)
-        print("The program is being compiled...")
+        print('The program is being compiled...')
         if compiler == '--pyinstaller':
-            rs = os.system(f"pyinstaller --onefile --name {filename[:-4]} {tempfile}")
+            rs = os.system(f'pyinstaller --onefile --name {filename[:-4]} {tempfile}')
         elif compiler == '--nuitka':
-            rs = os.system(f"nuitka --standalone --onefile --output-file={filename[:-4]} --output-dir=dist {tempfile}")
+            rs = os.system(f'nuitka --standalone --onefile --output-file={filename[:-4]} --output-dir=dist {tempfile}')
         if rs == 0:
-            print("The program has been compiled successfully!")
+            print('The program has been compiled successfully!')
             if os.name == 'nt':
                 print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename[:-4] + '.exe')}")
 
             else:
                 print(f"The executable file is located in the 'dist' subdirectory of the Compiler directory: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', filename[:-4])}")
         else:
-            print("An error occurred during compilation!")
+            print('An error occurred during compilation!')
             return
         try:
             if os.path.exists(tempfile):
                 os.remove(tempfile)
         except Exception as e:
-            print(f"Error: Unable to delete the temporary file: {e}")
+            print(f'Error: Unable to delete the temporary file: {e}')
             return
     except IOError as e:
         print(f"Error reading file '{file_name}': {e}")
         return 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

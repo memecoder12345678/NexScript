@@ -4,24 +4,28 @@ def clear_code(code):
     cleaned_lines = []
     inside_string = False
     for line in code.splitlines():
-        new_line = ""
+        new_line = ''
         for char in line:
             if char == '"' and not inside_string:
                 inside_string = True
             elif char == '"' and inside_string:
                 inside_string = False
             if char == '$' and not inside_string:
-                break 
+                break
+            if char == ';' and not inside_string and new_line.strip(): 
+                new_line = new_line.rstrip() + '\n'
+                continue
             new_line += char
         if new_line.strip():
             cleaned_lines.append(new_line)
-    return "\n".join(cleaned_lines)
+    return '\n'.join(cleaned_lines)
 try:
     while True:
         text = input('>>> ')
         text = clear_code(text)
-        if text.strip() == "": continue
-        if text == "EXIT": 
+        print(text)
+        if text.strip() == '': continue
+        if text == 'EXIT': 
             print('EXIT...')
             break
         result, error = NexScript.run('<stdin>', text)
