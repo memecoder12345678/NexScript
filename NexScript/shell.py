@@ -23,10 +23,10 @@ try:
     while True:
         text = input('>>> ')
         text = clear_code(text)
-        print(text)
+        # print(text)
         if text.strip() == '': continue
         if text == 'EXIT': 
-            print('EXIT...')
+            print('\nEXIT...')
             break
         result, error = NexScript.run('<stdin>', text)
         if error:

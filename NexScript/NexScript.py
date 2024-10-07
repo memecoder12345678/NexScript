@@ -1309,10 +1309,10 @@ class BuiltInFunction(BaseFunction):
         return copy
     def __repr__(self):
         return f'<built-in function>'
-    def execute_print(self, exec_ctx):
+    def execute_echo(self, exec_ctx):
         print(str(exec_ctx.symbol_table.get('value')))
         return RTResult().success(Number.null)
-    execute_print.arg_names = ['value']
+    execute_echo.arg_names = ['value']
     def execute_input_float(self, exec_ctx=None):
         while True:
             text = input(str(exec_ctx.symbol_table.get('value')))
@@ -1425,7 +1425,7 @@ class BuiltInFunction(BaseFunction):
     def execute_str(self, exec_ctx):
         return RTResult().success(String(str(exec_ctx.symbol_table.get('value'))))
     execute_str.arg_names = ['value']
-BuiltInFunction.print = BuiltInFunction("print")
+BuiltInFunction.echo = BuiltInFunction("echo")
 BuiltInFunction.input = BuiltInFunction("input")
 BuiltInFunction.input_float = BuiltInFunction("input_float")
 BuiltInFunction.input_int = BuiltInFunction("input_int")
@@ -1654,7 +1654,7 @@ global_symbol_table.set("NULL", Number.null)
 global_symbol_table.set("FALSE", Number.false)
 global_symbol_table.set("TRUE", Number.true)
 global_symbol_table.set("MATH_PI", Number.math_PI)
-global_symbol_table.set("ECHO", BuiltInFunction.print)
+global_symbol_table.set("ECHO", BuiltInFunction.echo)
 global_symbol_table.set("INPUT_FLOAT", BuiltInFunction.input_float)
 global_symbol_table.set("INPUT", BuiltInFunction.input)
 global_symbol_table.set("INPUT_INT", BuiltInFunction.input_int)
