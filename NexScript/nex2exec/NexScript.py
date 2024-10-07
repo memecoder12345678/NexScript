@@ -1,6 +1,6 @@
 # NexScript (v1.7.0, September 2024, 22:06)
 # This is a file to build an executable file so don't change it.
-from strings_error import * # type: ignore
+from error import * # type: ignore
 import string as string_ascii
 import os
 import math
@@ -16,7 +16,7 @@ class Error:
     def as_string(self):
         result = f'{self.error_name}: {self.details}\n'
         result += f'File {self.pos_start.fn}, line {self.pos_start.ln + 1}'
-        result += '\n\n' + strings_error(self.pos_start.ftxt, self.pos_start, self.pos_end) # type: ignore
+        result += '\n\n' + arrows(self.pos_start.ftxt, self.pos_start, self.pos_end) # type: ignore
         return result
 class IllegalCharError(Error):
     def __init__(self, pos_start, pos_end, details):
@@ -34,7 +34,7 @@ class RTError(Error):
     def as_string(self):
         result = self.generate_traceback()
         result += f'{self.error_name}: {self.details}'
-        result += '\n\n' + strings_error(self.pos_start.ftxt, self.pos_start, self.pos_end) # type: ignore
+        result += '\n\n' + arrows(self.pos_start.ftxt, self.pos_start, self.pos_end) # type: ignore
         return result
     def generate_traceback(self):
         result = ''

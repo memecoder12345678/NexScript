@@ -1,5 +1,4 @@
-# This is a file to build an executable file so don't change it.
-def strings_error(text, pos_start, pos_end):
+def arrows(text, pos_start, pos_end):
     result = ''
     idx_start = max(text.rfind('\n', 0, pos_start.idx), 0)
     idx_end = text.find('\n', idx_start + 1)

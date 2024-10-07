@@ -19,16 +19,16 @@ NexScript/
  │    │   └── test-3.nex
  │    │
  │    ├── nex2exec/
- │    │   ├── NexScript.py
+ │    │   ├── error.py
  │    │   ├── README.md
  │    │   ├── nex2exec.py
  │    │   ├── requirements.txt
- │    │   └── strings_error.py
+ │    │   └── NexScript.py
  │    │
- │    ├── NexRun.py
+ │    ├── error.py
  │    ├── NexScript.py
  │    ├── shell.py
- │    └── strings_error.py
+ │    └── NexRun.py
  |
  ├── Project Structure/
  │   └── README.md
