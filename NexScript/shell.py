@@ -40,7 +40,7 @@ try:
             else:
                 print(repr(result))
 except KeyboardInterrupt:
-    print('EXIT...')
+    print('\nEXIT...')
 except Exception as e:
     print(e)
 
