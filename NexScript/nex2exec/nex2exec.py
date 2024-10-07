@@ -2,7 +2,7 @@
 import random
 import sys
 import os
-tempfile = 'tempfile[' + str(random.randint(0, 9999999999)) + '].py'
+tempfile = 'tempfile[' + str(abs(hash(str(random.randint(0, 99999999999999999999999))))) + '].py'
 def clear_code(code):
     cleaned_lines = []
     inside_string = False
