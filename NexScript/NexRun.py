@@ -32,6 +32,9 @@ def main():
         with open(file_name, 'r') as file:
             code = file.read()
         code_clean = clear_code(code)
+        if code_clean.strip() == "":
+            print("Error: The file is empty")
+            return
         result, error = NexScript.run(file_name, code_clean)
         if error:
             if hasattr(error, 'as_string'):
