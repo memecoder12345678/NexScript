@@ -1,6 +1,6 @@
 # NexScript (v1.7.0, September 2024, 22:06)
 # This is a file to build an executable file so don't change it.
-from error import * # type: ignore
+from error import *
 import string as string_ascii
 import os
 import math

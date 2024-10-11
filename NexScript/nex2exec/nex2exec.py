@@ -1,8 +1,11 @@
 # nex2exec (v1.3.0, September 2024, 23:34)
 import sys
 import os
-import uuid, random, time
-tempfile = f'tempfile[{abs(hash(str(random.randint(0, 10**40)) + str(uuid.uuid4()) + str(time.time())))}].py'
+import uuid
+import random
+import time
+import hashlib
+tempfile = f'tempfile[{hashlib.sha256((str(random.randint(0, 10**40)) + str(uuid.uuid4()) + str(time.time())).encode()).hexdigest()}].py'
 def clear_code(code):
     cleaned_lines = []
     inside_string = False

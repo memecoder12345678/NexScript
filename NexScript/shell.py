@@ -23,7 +23,6 @@ try:
     while True:
         text = input('>>> ')
         text = clear_code(text)
-        # print(text)
         if text.strip() == '': continue
         if text == 'EXIT': 
             print('\nEXIT...')

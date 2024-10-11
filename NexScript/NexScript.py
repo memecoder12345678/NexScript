@@ -1,5 +1,5 @@
 # NexScript (v1.7.0, September 2024, 22:06)
-from error import * # type: ignore
+from error import *
 import string as string_ascii
 import os
 import math
