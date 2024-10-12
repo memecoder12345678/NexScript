@@ -25,7 +25,7 @@ ATOM        : INT | FLOAT | STRING | IDENTIFIER
             | LIST_EXPR
             | IF_EXPR
             | FOR_EXPR
-            | LOOP_EXPR
+            | WHILE_EXPR
             | FUNC_DEF
 
 LIST_EXPR   : "[" (EXPR ("," EXPR)*) "]"
@@ -34,6 +34,6 @@ IF_EXPR     : "IF" EXPR "THEN" STATEMENT ("ELIF" EXPR "THEN" STATEMENT)* ("ELSE"
 
 FOR_EXPR    : "FOR" IDENTIFIER "=" EXPR "TO" EXPR ("STEP" EXPR)? "THEN" STATEMENT "END"
 
-LOOP_EXPR   : "LOOP" EXPR "THEN" STATEMENT "END"
+WHILE_EXPR   : "WHILE" EXPR "THEN" STATEMENT "END"
 
 FUNC_DEF    : "FUNC" IDENTIFIER "(" (IDENTIFIER ("," IDENTIFIER)*)? ")" ("ARROW" EXPR)? "END"
