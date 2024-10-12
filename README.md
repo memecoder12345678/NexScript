@@ -59,9 +59,9 @@ NexScript supports various expressions and statements, including conditional log
 - **If Expressions**: 
   - Supports `IF`, `ELIF`, and `ELSE` for conditional logic.
   - Conditions can either be followed by a single statement or multiple statements enclosed by `END`.
-- **For and Loop Expressions**: 
+- **For and While Expressions**: 
   - `FOR` loops allow iteration with an optional `STEP`.
-  - `LOOP` expressions provide a mechanism for repeating code blocks based on conditions.
+  - `WHILE` expressions provide a mechanism for repeating code blocks based on conditions.
 
 ### Lists and Data Structures
 - **List Expressions**: 

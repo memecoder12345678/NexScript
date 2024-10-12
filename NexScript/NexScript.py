@@ -58,7 +58,7 @@ KEYWORDS = [
     'FOR',
     'TO',
     'STEP',
-    'LOOP',
+    'WHILE',
     'FUNC',
     'THEN',
     'END',
@@ -453,7 +453,7 @@ class Parser:
         if res.error:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                "Expected 'RETURN', 'CONTINUE', 'BREAK', 'SET', 'IF', 'FOR', 'LOOP', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+                "Expected 'RETURN', 'CONTINUE', 'BREAK', 'SET', 'IF', 'FOR', 'WHILE', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
             ))
         return res.success(expr)
     def expr(self):
@@ -483,7 +483,7 @@ class Parser:
         if res.error:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                "Expected 'SET', 'IF', 'FOR', 'LOOP', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+                "Expected 'SET', 'IF', 'FOR', 'WHILE', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
             ))
         return res.success(node)
     def comp_expr(self):
@@ -499,7 +499,7 @@ class Parser:
         if res.error:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                "Expected int, float, identifier, '+', '-', '(', '[', 'IF', 'FOR', 'LOOP', 'FUNC' or 'NOT'"
+                "Expected int, float, identifier, '+', '-', '(', '[', 'IF', 'FOR', 'WHILE', 'FUNC' or 'NOT'"
             ))
         return res.success(node)
     def arith_expr(self):
@@ -534,7 +534,7 @@ class Parser:
                 if res.error:
                     return res.failure(InvalidSyntaxError(
                         self.current_tok.pos_start, self.current_tok.pos_end,
-                        "Expected ')', 'SET', 'IF', 'FOR', 'LOOP', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+                        "Expected ')', 'SET', 'IF', 'FOR', 'WHILE', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
                     ))
                 while self.current_tok.type == TT_COMMA:
                     res.register_advancement()
@@ -591,7 +591,7 @@ class Parser:
             for_expr = res.register(self.for_expr())
             if res.error: return res
             return res.success(for_expr)
-        elif tok.matches(TT_KEYWORD, 'LOOP'):
+        elif tok.matches(TT_KEYWORD, 'WHILE'):
             while_expr = res.register(self.while_expr())
             if res.error: return res
             return res.success(while_expr)
@@ -601,7 +601,7 @@ class Parser:
             return res.success(func_def)
         return res.failure(InvalidSyntaxError(
             tok.pos_start, tok.pos_end,
-            "Expected int, float, identifier, '+', '-', '(', '[', IF', 'FOR', 'LOOP', 'FUNC'"
+            "Expected int, float, identifier, '+', '-', '(', '[', IF', 'FOR', 'WHILE', 'FUNC'"
         ))
     def list_expr(self):
         res = ParseResult()
@@ -622,7 +622,7 @@ class Parser:
             if res.error:
                 return res.failure(InvalidSyntaxError(
                     self.current_tok.pos_start, self.current_tok.pos_end,
-                    "Expected ']', 'SET', 'IF', 'FOR', 'LOOP', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+                    "Expected ']', 'SET', 'IF', 'FOR', 'WHILE', 'FUNC', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
                 ))
             while self.current_tok.type == TT_COMMA:
                 res.register_advancement()
@@ -795,10 +795,10 @@ class Parser:
         return res.success(ForNode(var_name, start_value, end_value, step_value, body, False))
     def while_expr(self):
         res = ParseResult()
-        if not self.current_tok.matches(TT_KEYWORD, 'LOOP'):
+        if not self.current_tok.matches(TT_KEYWORD, 'WHILE'):
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                f"Expected 'LOOP'"
+                f"Expected 'WHILE'"
             ))
         res.register_advancement()
         self.advance()
@@ -937,13 +937,13 @@ class RTResult:
         self.value = None
         self.error = None
         self.func_return_value = None
-        self.loop_should_continue = False
-        self.loop_should_break = False
+        self.WHILE_should_continue = False
+        self.WHILE_should_break = False
     def register(self, res):
         self.error = res.error
         self.func_return_value = res.func_return_value
-        self.loop_should_continue = res.loop_should_continue
-        self.loop_should_break = res.loop_should_break
+        self.WHILE_should_continue = res.WHILE_should_continue
+        self.WHILE_should_break = res.WHILE_should_break
         return res.value
     def success(self, value):
         self.reset()
@@ -955,11 +955,11 @@ class RTResult:
         return self
     def success_continue(self):
         self.reset()
-        self.loop_should_continue = True
+        self.WHILE_should_continue = True
         return self
     def success_break(self):
         self.reset()
-        self.loop_should_break = True
+        self.WHILE_should_break = True
         return self
     def failure(self, error):
         self.reset()
@@ -969,8 +969,8 @@ class RTResult:
         return (
             self.error or
             self.func_return_value or
-            self.loop_should_continue or
-            self.loop_should_break
+            self.WHILE_should_continue or
+            self.WHILE_should_break
         )
 class Value:
     def __init__(self):
@@ -1548,10 +1548,10 @@ class Interpreter:
             context.symbol_table.set(node.var_name_tok.value, Number(i))
             i += step_value.value
             value = res.register(self.visit(node.body_node, context))
-            if res.should_return() and res.loop_should_continue == False and res.loop_should_break == False: return res
-            if res.loop_should_continue:
+            if res.should_return() and res.WHILE_should_continue == False and res.WHILE_should_break == False: return res
+            if res.WHILE_should_continue:
                 continue
-            if res.loop_should_break:
+            if res.WHILE_should_break:
                 break
             elements.append(value)
         return res.success(
@@ -1567,10 +1567,10 @@ class Interpreter:
             if not condition.is_true():
                 break
             value = res.register(self.visit(node.body_node, context))
-            if res.should_return() and res.loop_should_continue == False and res.loop_should_break == False: return res
-            if res.loop_should_continue:
+            if res.should_return() and res.WHILE_should_continue == False and res.WHILE_should_break == False: return res
+            if res.WHILE_should_continue:
                 continue
-            if res.loop_should_break:
+            if res.WHILE_should_break:
                 break
             elements.append(value)
         return res.success(
