@@ -48,6 +48,9 @@ def main():
                 print(repr(result))
     except IOError as e:
         print(f"Error reading file '{file_name}': {e}")
-        return 
+        return
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return
 if __name__ == '__main__':
     main()
