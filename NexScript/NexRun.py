@@ -19,11 +19,11 @@ def clear_code(code):
     return '\n'.join(cleaned_lines)
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python NexRun.py <file_name.nex>")
+        print('Usage: python NexRun.py <file_name.nex>')
         return
     file_name = sys.argv[1]
     if not file_name.endswith('.nex'):
-        print("Error: The file must have a .nex extension")
+        print('Error: The file must have a .nex extension')
         return
     if not os.path.isfile(file_name):
         print(f"Error: File '{file_name}' not found")
@@ -32,8 +32,8 @@ def main():
         with open(file_name, 'r') as file:
             code = file.read()
         code_clean = clear_code(code)
-        if code_clean.strip() == "":
-            print("Error: The file is empty")
+        if code_clean.strip() == '':
+            print('Error: The file is empty')
             return
         result, error = NexScript.run(file_name, code_clean)
         if error:
@@ -50,7 +50,7 @@ def main():
         print(f"Error reading file '{file_name}': {e}")
         return
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f'An error occurred: {e}')
         return
 if __name__ == '__main__':
     main()
