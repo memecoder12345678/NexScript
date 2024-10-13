@@ -25,13 +25,13 @@ def clear_code(code):
 def main():
     global tempfile
     if len(sys.argv) != 3:
-        print("Usage: python nex2exe.py <compiler> <file_name.nex>")
+        print('Usage: python nex2exe.py <compiler> <file_name.nex>')
         print("Compiler options: '--pyinstaller' or '--nuitka'")
         return
     compiler = sys.argv[1].lower()
     file_name = sys.argv[2]
     if not file_name.endswith('.nex'):
-        print("Error: The file must have a .nex extension")
+        print('Error: The file must have a .nex extension')
         return
     if not os.path.isfile(file_name):
         print(f"Error: File '{file_name}' not found")
