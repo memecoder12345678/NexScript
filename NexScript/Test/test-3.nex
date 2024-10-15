@@ -2,5 +2,5 @@ SET name = INPUT("Enter your name: ")
 SET msg =  "Hello, " + name + "!"
 FOR i = 0 TO 5 THEN
 	ECHO(msg)
-END
+
 INPUT("Press Enter to exit...")

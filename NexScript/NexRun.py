@@ -12,7 +12,7 @@ def clear_code(code):
             elif char == '"' and inside_string:
                 inside_string = False
             if char == '$' and not inside_string:
-                break 
+                break
             new_line += char
         if new_line.strip():
             cleaned_lines.append(new_line)
@@ -31,11 +31,10 @@ def main():
     try:
         with open(file_name, 'r') as file:
             code = file.read()
-        code_clean = clear_code(code)
-        if code_clean.strip() == '':
+        if clear_code(code).strip() == '':
             print('Error: The file is empty')
             return
-        result, error = NexScript.run(file_name, code_clean)
+        result, error = NexScript.run(file_name, code)
         if error:
             if hasattr(error, 'as_string'):
                 print(error.as_string())

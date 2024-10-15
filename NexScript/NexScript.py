@@ -106,6 +106,8 @@ class Lexer:
             elif self.current_char == '\n':
                 tokens.append(Token(TT_NEWLINE, pos_start=self.pos))
                 self.advance()
+            elif self.current_char == '$':
+                self.skip_comment()
             elif self.current_char in DIGITS:
                 tokens.append(self.make_number())
             elif self.current_char in LETTERS:
@@ -241,6 +243,11 @@ class Lexer:
             self.advance()
             tok_type = TT_GTE
         return Token(tok_type, pos_start=pos_start, pos_end=self.pos)
+    def skip_comment(self):
+      self.advance()
+      while self.current_char != '\n':
+        self.advance()
+      self.advance()
 class NumberNode:
     def __init__(self, tok):
         self.tok = tok
@@ -1632,14 +1639,21 @@ global_symbol_table.set("EXTEND", BuiltInFunction.extend)
 global_symbol_table.set("LEN", BuiltInFunction.len)
 global_symbol_table.set("STR", BuiltInFunction.str)
 def run(fn, text):
-    lexer = Lexer(fn, text)
-    tokens, error = lexer.make_tokens()
-    if error: return None, error
-    parser = Parser(tokens)
-    ast = parser.parse()
-    if ast.error: return None, ast.error
-    interpreter = Interpreter()
-    context = Context('<program>')
-    context.symbol_table = global_symbol_table
-    result = interpreter.visit(ast.node, context)
-    return result.value, result.error
+    try:
+        lexer = Lexer(fn, text)
+        tokens, error = lexer.make_tokens()
+        if error: return None, error
+        parser = Parser(tokens)
+        ast = parser.parse()
+        if ast.error: return None, ast.error
+        interpreter = Interpreter()
+        context = Context('<program>')
+        context.symbol_table = global_symbol_table
+        result = interpreter.visit(ast.node, context)
+        return result.value, result.error
+    except KeyboardInterrupt:
+        print("Keyboard Interrupt")
+        exit(2)
+    except Exception as e:
+        print("An error occurred: ", e)
+        exit(1)

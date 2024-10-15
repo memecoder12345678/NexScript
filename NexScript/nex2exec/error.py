@@ -16,7 +16,7 @@ class Error:
             col_start = pos_start.col if i == 0 else 0
             col_end = pos_end.col if i == line_count - 1 else len(line) - 1
             result += line + '\n'
-            result += ' ' * (col_start + len("-----> ")) + '^' * (col_end - col_start)
+            result += ' ' * col_start + '^' * (col_end - col_start)
             idx_start = idx_end
             idx_end = text.find('\n', idx_start + 1)
             if idx_end < 0: idx_end = len(text)
@@ -24,7 +24,7 @@ class Error:
     def as_string(self):
         result = f'{self.error_name}: {self.details}\n'
         result += f'    File {self.pos_start.fn}, line {self.pos_start.ln + 1}'
-        result += '\n\n-----> ' + self.arrows(self.pos_start.ftxt, self.pos_start, self.pos_end)
+        result += '\n\n' + self.arrows(self.pos_start.ftxt, self.pos_start, self.pos_end)
         return result
 class IllegalCharError(Error):
     def __init__(self, pos_start, pos_end, details):
@@ -42,7 +42,7 @@ class RTError(Error):
     def as_string(self):
         result = self.generate_traceback()
         result += f'{self.error_name}: {self.details}'
-        result += '\n\n-----> ' + self.arrows(self.pos_start.ftxt, self.pos_start, self.pos_end)
+        result += '\n\n' + self.arrows(self.pos_start.ftxt, self.pos_start, self.pos_end)
         return result
     def generate_traceback(self):
         result = ''

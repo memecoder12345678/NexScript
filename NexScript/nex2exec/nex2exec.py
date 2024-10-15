@@ -42,12 +42,14 @@ def main():
     try:
         with open(file_name, 'r') as file:
             code = file.read()
-        code_clean = clear_code(code)
+            if clear_code(code).strip()  == '':
+                print('Error: The file is empty')
+                return
         filename = os.path.basename(file_name)
         code_in_file = f"""
 import NexScript
 text = '''
-{code_clean}
+{code}
 '''
 result, error = NexScript.run('{filename}', text)
 if error:
