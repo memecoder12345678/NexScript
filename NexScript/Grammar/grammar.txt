@@ -6,7 +6,7 @@ STATEMENT   : "RETURN" EXPR
 EXPR        : "SET" IDENTIFIER "=" EXPR
             | COMP_EXPR (("AND" | "OR") COMP_EXPR)*
 
-COMP_EXPR   : ARITH_EXPR (("==" | "<" | ">" | "<=" | ">=") ARITH_EXPR)*
+COMP_EXPR   : ARITH_EXPR (("==" | "<" | ">" | "<=" | ">=" | "!=") ARITH_EXPR)*
             | "NOT" COMP_EXPR
 
 ARITH_EXPR  : TERM (("+" | "-") TERM)*
