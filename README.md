@@ -151,7 +151,7 @@ Where:
 - `NexRun.py` is the script that interprets and runs your NexScript programs.
 - `path\to\your\file.nex` is the path to the NexScript file you want to execute.
 ---
-NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. You can also refer to the `grammar.txt` file for more details on the language's grammar and syntax 📝🚀
+NexScript provides an intuitive and powerful way to build programs with a focus on readability and simplicity. This language is ideal for both beginners and advanced users looking for a flexible scripting solution. You can also refer to the [grammar.txt](https://github.com/memecoder12345678/NexScript/blob/main/NexScript/Grammar/grammar.txt) file for more details on the language's grammar and syntax 📝🚀
 
 ---
 If you have any questions, please contact us via email at: [memecoder17@gmail.com](mailto:memecoder17@gmail.com)
