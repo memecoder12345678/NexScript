@@ -27,6 +27,9 @@ ATOM        : INT | FLOAT | STRING | IDENTIFIER
             | FOR_EXPR
             | WHILE_EXPR
             | FUNC_DEF
+            | LIST_INDEX
+
+LIST_INDEX  : IDENTIFIER "/" INT
 
 LIST_EXPR   : "[" (EXPR ("," EXPR)*) "]"
 
