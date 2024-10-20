@@ -180,7 +180,8 @@ class Lexer:
         escape_character = False
         escape_characters = {
             'n': '\n',
-            't': '\t'
+            't': '\t',
+            '"': '\"'
         }
         self.advance()
         while self.current_char is not None and (self.current_char != qt or escape_character):
